@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartWear - Moda casual y elegante</title>
+  <meta name="description" content="SmartWear: tienda online de ropa casual y elegante. Moda con estilo y elegancia. ¡Descubrí nuestra colección!">
+  <meta name="author" content="Tu Nombre" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <h1><a href="#inicio">SmartWear</a></h1>
+    <nav id="barraNavegacion" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Acerca de nosotros</a></li>
+        <li><a href="#catalogo">Nuestro catálogo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li>
+          <button id="abrirCarrito" aria-label="Ver carrito">
+            <img src="assets/icons/carrito.png" alt="Ícono de carrito" class="icono-carrito" />
+            <span id="cart-count">0</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <button id="menuHamburguesa" aria-label="Abrir menú">&#9776;</button>
+  </header>
+  
+  <div id="contenidoPrincipal">
+  <main>
+    <!-- PORTADA -->
+    <section id="inicio">
+      <section class="contenido-hero">
+        <div class="encabezado-seccion">
+          <h2>Estilo que habla por vos</h2>
+          <p>En SmartWear encontrá ropa urbana, casual y elegante con diseño moderno. Para todos los días, para tus momentos especiales. ¡Vestite con actitud!</p>
+          <a href="#catalogo">Explorar colección</a>
+        </div>
+
+        <section class="hero-slider">
+          <img src="assets/img/1.jpg" alt="Hombre con un traje azul" class="active" />
+          <img src="assets/img/2.jpg" alt="Mujer con un conjunto elegante de invierno negro" />
+          <img src="assets/img/3.jpg" alt="Hombre con un look casual moderno"/>
+        </section>
+      </section>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+      <h2 class="encabezado-seccion">Conocenos y mirá nuestros beneficios</h2>
+      <article>
+        <p>
+          En SmartWear nos mueve el diseño, la comodidad y la personalidad.
+          Creamos prendas que combinan lo mejor del streetwear con toques sofisticados.
+          Cada detalle está pensado para que te sientas vos.
+        </p>
+      </article>
+
+      <section class="nosotros-beneficios" aria-label="Beneficios de comprar en SmartWear">
+        <article class="beneficio">
+          <figure>
+            <img src="assets/icons/tarjeta.png" alt="Medios de pago" />
+            <figcaption>Recibimos todos los medios de pago</figcaption>
+          </figure>
+        </article>
+
+        <article class="beneficio">
+          <figure>
+            <img src="assets/icons/envio.png" alt="Envío gratis" />
+            <figcaption>Envío gratis desde $200.000</figcaption>
+          </figure>
+        </article>
+
+        <article class="beneficio">
+          <figure>
+            <img src="assets/icons/talle.png" alt="Devoluciones gratuitas" />
+            <figcaption>Devolucion gratuita por talle erróneo</figcaption>
+          </figure>
+        </article>
+
+        <article class="beneficio">
+          <figure>
+            <img src="assets/icons/oferta.png" alt="Ofertas relámpago" />
+            <figcaption>Ofertas todos los viernes</figcaption>
+          </figure>
+        </article>
+      </section>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo">
+      <div class="encabezado-seccion">
+        <h2>Nuestro Catálogo</h2>
+      </div>
+
+      <aside>
+        <ul class="filtros-categorias">
+          <li><button type="button" data-categoria="todos" class="active">TODO</button></li>
+          <li><button type="button" data-categoria="hombre">HOMBRE</button></li>
+          <li><button type="button" data-categoria="mujer">MUJER</button></li>
+          <li><button type="button" data-categoria="elegante">ELEGANTE</button></li>
+          <li><button type="button" data-categoria="casual">CASUAL</button></li>
+          <li><button type="button" data-categoria="urbano">URBANO</button></li>
+          <li><button type="button" data-categoria="accesorios">ACCESORIOS</button></li>
+        </ul>
+      </aside>
+
+      <section id="productos-container">
+        <!-- Productos renderizados desde JavaScript -->
+      </section>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="encabezado-seccion">
+        <h2>Contacto</h2>
+      </div>
+      <form id="formulario-contacto" novalidate>
+        <fieldset>
+          <legend>¿Tenés dudas o consultas? Escribinos</legend>
+
+          <label for="nombre">Nombre y Apellido</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido"/>
+          <span id="error-nombre"></span>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Tu correo electrónico"/>
+          <span id="error-email"></span>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" required placeholder="Máximo 500 caracteres" maxlength="500"></textarea>
+          <span id="error-mensaje"></span>
+
+          <button type="submit">Enviar</button>
+          <p id="form-success"></p>
+        </fieldset>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 SmartWear. Todos los derechos reservados.</p>
+  </footer>
+
+</div>
+
+  <!-- CARRITO -->
+    <aside id="carritoPanel">
+      <div class="encabezado-seccion">
+        <h2>Vas a comprar</h2>
+        <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <section id="carrito-container"></section>
+      <footer>
+        <button id="vaciar-carrito">Vaciar lista de productos</button>
+      </footer>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="carritoOverlay"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* hero.css */
+#inicio {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  padding: 4rem 2rem;
+  background: var(--color-fondo);
+}
+
+.contenido-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.encabezado-seccion {
+  flex: 1;
+  min-width: 280px;
+}
+
+.encabezado-seccion h2 {
+  font-family: var(--fuente-titulo);
+  font-size: 2.8rem;
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.encabezado-seccion p {
+  max-width: 500px;
+  color: #444;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.encabezado-seccion a {
+  background: var(--color-acento);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.encabezado-seccion a:hover {
+  background: #62b1cb;
+}
+
+.hero-slider {
+  position: relative;
+  width: 500px;
+  height: 600px;
+  flex-shrink: 0;
+}
+
+.hero-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 10px solid #ffffff;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+.hero-slider img.active {
+  opacity: 1;
+  z-index: 1;
+}

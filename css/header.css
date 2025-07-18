@@ -1,0 +1,54 @@
+/* header.css */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-claro);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+header h1 a {
+  font-family: var(--fuente-titulo);
+  font-size: 1.8rem;
+  color: var(--color-acento);
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a,
+#abrirCarrito {
+  font-weight: bold;
+  color: var(--color-principal);
+}
+
+#menuHamburguesa {
+  display: none;
+}
+
+.icono-carrito {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+#abrirCarrito {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+  color: var(--color-principal);
+  font-size: 1rem;
+  cursor: pointer;
+}
+

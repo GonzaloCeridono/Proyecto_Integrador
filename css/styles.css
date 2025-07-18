@@ -1,0 +1,9 @@
+/* styles.css */
+@import url('./base.css');
+@import url('./header.css');
+@import url('./hero.css');
+@import url('./nosotros.css');
+@import url('./catalogo.css');
+@import url('./carrito.css');
+@import url('./contacto.css');
+@import url('./footer.css');
