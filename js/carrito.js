@@ -1,4 +1,4 @@
-export function inicializarCarrito() {
+export default function inicializarCarrito() {
   const abrirCarrito = document.getElementById('abrirCarrito');
   const cerrarCarrito = document.getElementById('cerrarCarrito');
   const carritoPanel = document.getElementById('carritoPanel');
