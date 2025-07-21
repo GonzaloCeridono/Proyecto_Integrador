@@ -32,18 +32,18 @@ export default function inicializarCarrito() {
   }
 
   // Bloquear scroll del fondo en mobile
-  function bloquearScrollExtra(panel) {
+  function bloquearScrollExtra(container) {
   let startY = 0;
 
-  panel.addEventListener('touchstart', (e) => {
+  container.addEventListener('touchstart', (e) => {
     startY = e.touches[0].clientY;
   });
 
-  panel.addEventListener('touchmove', (e) => {
+  container.addEventListener('touchmove', (e) => {
     const currentY = e.touches[0].clientY;
-    const scrollTop = panel.scrollTop;
-    const scrollHeight = panel.scrollHeight;
-    const offsetHeight = panel.offsetHeight;
+    const scrollTop = container.scrollTop;
+    const scrollHeight = container.scrollHeight;
+    const offsetHeight = container.offsetHeight;
     const atTop = scrollTop === 0;
     const atBottom = scrollTop + offsetHeight >= scrollHeight;
 
@@ -51,13 +51,13 @@ export default function inicializarCarrito() {
     const scrollingDown = currentY < startY;
 
     if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-      e.preventDefault(); // bloquea el scroll que se “escapa” al fondo
+      e.preventDefault(); // Evita el scroll hacia el fondo
     }
   }, { passive: false });
 }
 
-  // Activar scroll trap solo si existe el panel
-  if (carritoPanel) {
-    bloquearScrollExtra(carritoPanel);
-  }
+  const carritoScroll = document.getElementById('carrito-container');
+if (carritoScroll) {
+  bloquearScrollExtra(carritoScroll);
+}
 }
