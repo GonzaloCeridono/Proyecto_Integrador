@@ -50,28 +50,29 @@ function actualizarCarritoUI() {
   const tituloCarrito = document.getElementById('titulo-carrito');
   contenedor.innerHTML = "";
 
-  carrito.forEach(producto => {
-    const item = document.createElement("div");
-    item.classList.add("item-carrito");
-    item.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}" />
-      <div>
-        <h4>${producto.nombre}</h4>
-        <div class="control-cantidad">
-          <button class="btn-menos" data-id="${producto.id}">-</button>
-          <span>${producto.cantidad}</span>
-          <button class="btn-mas" data-id="${producto.id}">+</button>
-        </div>
-        <p>Precio total: $${(producto.precio * producto.cantidad).toLocaleString("es-AR")}</p>
-      </div>
-    `;
-    contenedor.appendChild(item);
-  });
-
-  const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
-
   if (carrito.length > 0) {
     tituloCarrito.textContent = "Vas a comprar";
+
+    carrito.forEach(producto => {
+      const item = document.createElement("div");
+      item.classList.add("item-carrito");
+      item.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.nombre}" />
+        <div>
+          <h4>${producto.nombre}</h4>
+          <div class="control-cantidad">
+            <button class="btn-menos" data-id="${producto.id}">-</button>
+            <span>${producto.cantidad}</span>
+            <button class="btn-mas" data-id="${producto.id}">+</button>
+          </div>
+          <p>Precio total: $${(producto.precio * producto.cantidad).toLocaleString("es-AR")}</p>
+        </div>
+      `;
+      contenedor.appendChild(item);
+    });
+
+    const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+
     const resumen = document.createElement("div");
     resumen.classList.add("resumen-carrito");
     resumen.innerHTML = `
@@ -82,13 +83,18 @@ function actualizarCarritoUI() {
     `;
     contenedor.appendChild(resumen);
 
+    // Espaciador invisible para evitar corte por botones del navegador
+    const espaciador = document.createElement("div");
+    espaciador.classList.add("espaciador-final");
+    contenedor.appendChild(espaciador);
+
     // Reasignar evento al botón vaciar
     resumen.querySelector('#vaciar-carrito').addEventListener('click', vaciarCarrito);
+
   } else {
     tituloCarrito.textContent = "Tu carrito está vacío";
   }
 }
-
 
 function actualizarContador() {
   const contador = document.getElementById('cart-count');

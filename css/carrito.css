@@ -206,6 +206,11 @@
   transform: scale(1.1);
 }
 
+.espaciador-final {
+  height: max(64px, env(safe-area-inset-bottom, 32px));
+}
+
+
 @media (max-width: 860px) {
   #carritoPanel {
     position: fixed;
