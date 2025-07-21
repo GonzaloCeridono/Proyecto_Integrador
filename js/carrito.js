@@ -31,26 +31,30 @@ export default function inicializarCarrito() {
     carritoOverlay.addEventListener('click', ocultarCarrito);
   }
 
-  // 🚫 Bloquear scroll del fondo en mobile al scrollear el carrito
+  // Bloquear scroll del fondo en mobile
   function bloquearScrollExtra(panel) {
-    panel.addEventListener('touchstart', (e) => {
-      const scrollTop = panel.scrollTop;
-      const scrollHeight = panel.scrollHeight;
-      const offsetHeight = panel.offsetHeight;
+  let startY = 0;
 
-      if (scrollTop === 0) {
-        panel.scrollTop = 1; // evita scroll hacia arriba desde el borde superior
-      } else if (scrollTop + offsetHeight >= scrollHeight) {
-        panel.scrollTop -= 1; // evita scroll hacia abajo desde el borde inferior
-      }
-    });
+  panel.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  });
 
-    panel.addEventListener('touchmove', (e) => {
-      if (panel.offsetHeight >= panel.scrollHeight) {
-        e.preventDefault(); // bloquea el scroll cuando no hay contenido suficiente
-      }
-    }, { passive: false }); // importante para que funcione preventDefault
-  }
+  panel.addEventListener('touchmove', (e) => {
+    const currentY = e.touches[0].clientY;
+    const scrollTop = panel.scrollTop;
+    const scrollHeight = panel.scrollHeight;
+    const offsetHeight = panel.offsetHeight;
+    const atTop = scrollTop === 0;
+    const atBottom = scrollTop + offsetHeight >= scrollHeight;
+
+    const scrollingUp = currentY > startY;
+    const scrollingDown = currentY < startY;
+
+    if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
+      e.preventDefault(); // bloquea el scroll que se “escapa” al fondo
+    }
+  }, { passive: false });
+}
 
   // Activar scroll trap solo si existe el panel
   if (carritoPanel) {
