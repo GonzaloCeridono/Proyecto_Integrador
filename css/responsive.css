@@ -1,14 +1,4 @@
 @media (max-width: 768px) {
-  header nav ul {
-    flex-direction: column;
-    display: none;
-  }
-
-  #menuHamburguesa {
-    display: block;
-    font-size: 1.8rem;
-  }
-
   .contenido-hero {
     flex-direction: column;
   }
