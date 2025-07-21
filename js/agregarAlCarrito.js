@@ -47,6 +47,10 @@ function vaciarCarrito() {
 
 function actualizarCarritoUI() {
   const contenedor = document.getElementById('carrito-container');
+  const totalElemento = document.querySelector('#total-carrito span');
+  const footerCarrito = document.getElementById('footer-carrito');
+  const tituloCarrito = document.getElementById('titulo-carrito');
+
   contenedor.innerHTML = "";
 
   carrito.forEach(producto => {
@@ -66,13 +70,21 @@ function actualizarCarritoUI() {
     `;
     contenedor.appendChild(item);
   });
-  const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
-  const totalElement = document.createElement("div");
-  totalElement.classList.add("total-carrito");
-  totalElement.innerHTML = `<h3>Total: $${total.toLocaleString("es-AR")}</h3>`;
-  contenedor.appendChild(totalElement);
-}
 
+  const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+  if (totalElemento) {
+    totalElemento.textContent = `$${total.toLocaleString("es-AR")}`;
+  }
+
+  // Mostrar u ocultar footer y actualizar título
+  if (carrito.length > 0) {
+    footerCarrito.style.display = "flex";
+    if (tituloCarrito) tituloCarrito.textContent = "Vas a comprar";
+  } else {
+    footerCarrito.style.display = "none";
+    if (tituloCarrito) tituloCarrito.textContent = "Tu carrito está vacío";
+  }
+}
 
 function actualizarContador() {
   const contador = document.getElementById('cart-count');

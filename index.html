@@ -153,12 +153,17 @@
   <!-- CARRITO -->
     <aside id="carritoPanel">
       <div class="encabezado-seccion">
-        <h2>Vas a comprar</h2>
+        <h2 id="titulo-carrito">Vas a comprar</h2>
         <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
       </div>
       <section id="carrito-container"></section>
-      <footer>
-        <button id="vaciar-carrito">Vaciar lista de productos</button>
+      <footer class="footer-carrito" id="footer-carrito">
+        <p id="total-carrito">
+          Total: <span>$0</span>
+          <button id="vaciar-carrito" aria-label="Vaciar carrito">
+            <img src="assets/icons/basurero.png" alt="Vaciar carrito" />
+          </button>
+        </p>
       </footer>
     </aside>
     <!-- Overlay -->

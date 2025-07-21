@@ -81,7 +81,6 @@
 }
 
 #carritoPanel footer button {
-  background-color: var(--color-acento);
   border: none;
   padding: 0.9rem;
   color: white;
@@ -90,10 +89,6 @@
   font-size: 1rem;
   width: 100%;
   transition: background-color 0.3s ease;
-}
-
-#carritoPanel footer button:hover {
-  background-color: #cb6262;
 }
 
 #contenidoPrincipal.blur {
@@ -178,6 +173,49 @@
   font-weight: bold;
   text-align: right;
   padding-right: 1rem;
+}
+
+.footer-carrito {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 24px));
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  flex-shrink: 0;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+}
+
+#total-carrito {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--color-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#total-carrito button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#total-carrito button img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(33%) sepia(91%) saturate(624%) hue-rotate(326deg) brightness(92%) contrast(92%);
+  transition: transform 0.2s ease;
+}
+
+#total-carrito button:hover img {
+  transform: scale(1.1);
 }
 
 @media (max-width: 860px) {
