@@ -47,10 +47,7 @@ function vaciarCarrito() {
 
 function actualizarCarritoUI() {
   const contenedor = document.getElementById('carrito-container');
-  const totalElemento = document.querySelector('#total-carrito span');
-  const footerCarrito = document.getElementById('footer-carrito');
   const tituloCarrito = document.getElementById('titulo-carrito');
-
   contenedor.innerHTML = "";
 
   carrito.forEach(producto => {
@@ -72,19 +69,26 @@ function actualizarCarritoUI() {
   });
 
   const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
-  if (totalElemento) {
-    totalElemento.textContent = `$${total.toLocaleString("es-AR")}`;
-  }
 
-  // Mostrar u ocultar footer y actualizar título
   if (carrito.length > 0) {
-    footerCarrito.style.display = "flex";
-    if (tituloCarrito) tituloCarrito.textContent = "Vas a comprar";
+    tituloCarrito.textContent = "Vas a comprar";
+    const resumen = document.createElement("div");
+    resumen.classList.add("resumen-carrito");
+    resumen.innerHTML = `
+      <p id="total-carrito">Total: <span>$${total.toLocaleString("es-AR")}</span></p>
+      <button id="vaciar-carrito" aria-label="Vaciar carrito">
+        <img src="assets/icons/basurero.png" alt="Vaciar carrito"/>
+      </button>
+    `;
+    contenedor.appendChild(resumen);
+
+    // Reasignar evento al botón vaciar
+    resumen.querySelector('#vaciar-carrito').addEventListener('click', vaciarCarrito);
   } else {
-    footerCarrito.style.display = "none";
-    if (tituloCarrito) tituloCarrito.textContent = "Tu carrito está vacío";
+    tituloCarrito.textContent = "Tu carrito está vacío";
   }
 }
+
 
 function actualizarContador() {
   const contador = document.getElementById('cart-count');
