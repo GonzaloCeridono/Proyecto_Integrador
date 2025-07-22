@@ -1,7 +1,6 @@
-/* hero.css */
 #inicio {
   display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
+  justify-content: center;
   padding: 4rem 2rem;
   background: var(--color-fondo);
 }

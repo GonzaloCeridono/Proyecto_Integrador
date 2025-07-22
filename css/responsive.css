@@ -1,3 +1,19 @@
+@media (max-width: 1200px) {
+  .hero-slider {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  flex-shrink: 0;
+  }
+
+  #productos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .contenido-hero {
     flex-direction: column;
@@ -10,18 +26,34 @@
     max-width: 100%;
   }
 
-  #catalogo aside ul {
-    flex-direction: column;
-  }
+  #productos-container {
+  display: grid;
+  grid-template-columns: repeat(2, 350px);
+  gap: 2rem;
+  justify-content: center;
+}
 }
 
-@media (max-width: 600px) {
-  .nosotros-beneficios {
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 320px) and (max-width: 768px) {
+  #catalogo {
+    padding: 2rem 1rem;
   }
 
-  .beneficio {
-    width: 100%;
+  .filtros-categorias {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .filtros-categorias button {
+    width: auto;
+    margin: 0;
+  }
+
+  #productos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
