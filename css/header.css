@@ -152,7 +152,7 @@ nav a, #abrirCarrito {
   }
 
   #btnMenu:checked ~ nav {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 

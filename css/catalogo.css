@@ -86,3 +86,88 @@
 .producto button:hover {
   background-color: #62b1cb;
 }
+
+@media (max-width: 1280px) {
+  #productos-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .filtros-categorias {
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+
+  .filtros-categorias button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  #productos-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .producto {
+    width: 100%;
+  }
+
+  .producto img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filtros-categorias {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .filtros-categorias button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  #productos-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .producto img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 425px) {
+  #catalogo {
+    padding: 2rem 1rem;
+  }
+
+  .filtros-categorias {
+    gap: 0.4rem;
+  }
+
+  .filtros-categorias button {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .producto img {
+    height: 160px;
+  }
+
+  .producto h3 {
+    font-size: 1rem;
+  }
+
+  .producto p {
+    font-size: 0.95rem;
+  }
+
+  .producto button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

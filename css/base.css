@@ -18,6 +18,10 @@
   scroll-margin-top: 80px;
 }
 
+html.restaurando-scroll {
+  scroll-behavior: auto !important;
+}
+
 body {
   font-family: var(--fuente-texto);
   background: var(--color-fondo);
@@ -26,6 +30,7 @@ body {
   background-size: cover;
   color: var(--color-principal);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 

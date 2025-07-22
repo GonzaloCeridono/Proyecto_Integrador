@@ -88,3 +88,75 @@ span[id^="error-"] {
   font-size: 0.9rem;
   text-align: left;
 }
+
+@media (max-width: 768px) {
+  #contacto {
+    padding: 3rem 1.5rem;
+  }
+
+  #formulario-contacto {
+    padding: 2rem;
+  }
+
+  legend {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  button[type="submit"] {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #contacto h2 {
+    font-size: 2rem;
+  }
+
+  #formulario-contacto {
+    padding: 1.5rem;
+  }
+
+  legend {
+    font-size: 1rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  #formulario-contacto {
+    padding: 1rem;
+  }
+
+  legend {
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  button[type="submit"] {
+    font-size: 0.85rem;
+  }
+}

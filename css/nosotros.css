@@ -1,4 +1,3 @@
-/* nosotros.css */
 #nosotros {
   padding: 4rem 2rem;
   text-align: center;
@@ -52,4 +51,66 @@
   font-size: 1.2rem;
   color: #333;
   font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  #nosotros h2 {
+    font-size: 2.2rem;
+  }
+
+  #nosotros article p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .beneficio {
+    width: 300px;
+  }
+
+  .beneficio figcaption {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #nosotros {
+    padding: 3rem 1.5rem;
+  }
+
+  #nosotros h2 {
+    font-size: 2rem;
+  }
+
+  #nosotros article p {
+    font-size: 1rem;
+  }
+
+  .nosotros-beneficios {
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .beneficio {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 375px) {
+  #nosotros h2 {
+    font-size: 1.8rem;
+  }
+
+  #nosotros article p {
+    font-size: 0.95rem;
+  }
+
+  .beneficio img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .beneficio figcaption {
+    font-size: 1rem;
+  }
 }

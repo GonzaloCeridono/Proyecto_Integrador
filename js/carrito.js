@@ -7,7 +7,31 @@ export default function inicializarCarrito() {
   const enlacesNavbar = document.querySelectorAll('header nav a');
   const carritoScroll = document.getElementById('carrito-container');
 
-  // Función para bloquear scroll de fondo (en mobile)
+  let scrollPos = 0;
+
+  // Bloquear scroll de fondo sin perder posición
+  function bloquearScroll() {
+    scrollPos = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPos}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Restaurar scroll original
+  function restaurarScroll() {
+    document.documentElement.classList.add('restaurando-scroll');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPos);
+    setTimeout(() => {
+      document.documentElement.classList.remove('restaurando-scroll');
+    }, 100);
+  }
+
+  // Función para bloquear scroll extra en iOS dentro del carrito
   function bloquearScrollExtra(container) {
     let startY = 0;
 
@@ -37,19 +61,29 @@ export default function inicializarCarrito() {
     carritoPanel.classList.add('mostrar');
     carritoOverlay.classList.add('visible');
     contenidoPrincipal?.classList.add('blur');
-    document.body.style.overflow = 'hidden';
+    bloquearScroll();
   }
 
   function ocultarCarrito() {
     carritoPanel.classList.remove('mostrar');
     carritoOverlay.classList.remove('visible');
     contenidoPrincipal?.classList.remove('blur');
-    document.body.style.overflow = '';
+    restaurarScroll();
   }
 
   // Eventos de apertura/cierre
   if (abrirCarrito && cerrarCarrito && carritoPanel && carritoOverlay) {
-    abrirCarrito.addEventListener('click', mostrarCarrito);
+    abrirCarrito.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const estaAbierto = carritoPanel.classList.contains('mostrar');
+    if (estaAbierto) {
+      ocultarCarrito();
+    } else {
+      mostrarCarrito();
+    }
+  });
+
     cerrarCarrito.addEventListener('click', ocultarCarrito);
     carritoOverlay.addEventListener('click', ocultarCarrito);
   }
@@ -59,7 +93,7 @@ export default function inicializarCarrito() {
     enlace.addEventListener('click', ocultarCarrito);
   });
 
-  // Activar bloqueo de scroll “extra”
+  // Bloquear scroll interno táctil
   if (carritoScroll) {
     bloquearScrollExtra(carritoScroll);
   }

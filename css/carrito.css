@@ -74,7 +74,7 @@
 }
 
 #carritoPanel footer {
-  padding: 1rem;
+  padding: 1rem 1rem max(2rem, env(safe-area-inset-bottom, 32px));
   border-top: 1px solid #ccc;
   background-color: #f9f9f9;
   flex-shrink: 0;
@@ -96,6 +96,11 @@
   transition: filter 0.3s ease;
   pointer-events: none;
   user-select: none;
+}
+
+#contenidoPrincipal.scroll-bloqueado {
+  overflow: hidden;
+  height: 100vh;
 }
 
 .item-carrito {
@@ -210,15 +215,12 @@
   height: max(64px, env(safe-area-inset-bottom, 32px));
 }
 
-
 @media (max-width: 860px) {
   #carritoPanel {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: white;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     z-index: 1100;
@@ -234,12 +236,32 @@
     flex-grow: 1;
     overflow-y: auto;
     padding: 1rem;
-    -webkit-overflow-scrolling: touch; /* ✅ Habilita scroll suave en iOS */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .resumen-carrito {
+    margin-top: auto; /* que empuje hacia abajo si hay espacio */
+    padding: 1rem 0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-principal);
+  }
+
+  .resumen-carrito button img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
   }
 
   #carritoPanel footer {
-    padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 24px));
-    padding-bottom: 4rem;
+    padding: 1rem 1rem max(2rem, env(safe-area-inset-bottom, 32px));
+    background: #f9f9f9;
+    flex-shrink: 0;
   }
 }
 
