@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   padding: 4rem 2rem;
-  background: var(--color-fondo);
 }
 
 .contenido-hero {
