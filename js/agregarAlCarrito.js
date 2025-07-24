@@ -23,21 +23,6 @@ function agregarAlCarrito(producto) {
   actualizarContador();
 }
 
-function eliminarUnoDelCarrito(id) {
-  const index = carrito.findIndex(p => p.id === id);
-  if (index > -1) {
-    if (carrito[index].cantidad > 1) {
-      carrito[index].cantidad--;
-    } else {
-      carrito.splice(index, 1);
-    }
-  }
-
-  guardarCarrito();
-  actualizarCarritoUI();
-  actualizarContador();
-}
-
 function vaciarCarrito() {
   carrito = [];
   guardarCarrito();

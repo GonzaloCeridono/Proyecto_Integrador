@@ -1,5 +1,5 @@
 :root {
-  --altura-navbar: 99px;
+  --altura-navbar: 99px; /* Ajuste para que el carrito no se superponga a la navbar */
 }
 
 #carritoPanel {

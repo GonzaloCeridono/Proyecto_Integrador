@@ -6,7 +6,7 @@ export default function iniciarSlider() {
     // Ocultar imagen actual
     imagenes[index].classList.remove("active");
 
-    // Avanzar al siguiente índice (circular)
+    // Avanzar al siguiente índice
     index = (index + 1) % imagenes.length;
 
     // Mostrar nueva imagen

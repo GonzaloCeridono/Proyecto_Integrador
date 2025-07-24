@@ -14,11 +14,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 80px; /* Previene el cortar los titulos de las secciones al usar los links de navegacion */
 }
 
 html.restaurando-scroll {
-  scroll-behavior: auto !important;
+  scroll-behavior: auto !important; /* Esto ayuda para que no se haga scroll en el contenido al abrir el carrito */
 }
 
 body {
