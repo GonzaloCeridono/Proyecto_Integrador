@@ -1,7 +1,10 @@
 export default function inicializarMenuHamburguesa() {
   const btnMenu = document.getElementById("btnMenu");
+  const menu = document.getElementById("barraNavegacion");
   const contenidoPrincipal = document.getElementById("contenidoPrincipal");
   const enlacesMenu = document.querySelectorAll("#barraNavegacion a");
+
+  // Blur de fondo cuando el menú está abierto
 
   function aplicarBlur() {
     contenidoPrincipal?.classList.add("blur");
@@ -13,8 +16,12 @@ export default function inicializarMenuHamburguesa() {
     document.body.style.overflow = "";
   }
 
-  btnMenu.addEventListener("change", () => {
-    if (btnMenu.checked) {
+  // Menu hamburguesa
+
+  btnMenu.addEventListener("click", () => {
+    menu.classList.toggle("menu-abierto");
+
+    if (menu.classList.contains("menu-abierto")) {
       aplicarBlur();
     } else {
       quitarBlur();
@@ -23,14 +30,14 @@ export default function inicializarMenuHamburguesa() {
 
   enlacesMenu.forEach(enlace => {
     enlace.addEventListener("click", () => {
-      btnMenu.checked = false;
+      menu.classList.remove("menu-abierto");
       quitarBlur();
     });
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && btnMenu.checked) {
-      btnMenu.checked = false;
+    if (e.key === "Escape" && menu.classList.contains("menu-abierto")) {
+      menu.classList.remove("menu-abierto");
       quitarBlur();
     }
   });

@@ -10,30 +10,33 @@
 </head>
 <body>
   <!-- NAVBAR -->
-   <header id="navbar">
-      <h1><a href="#inicio">SmartWear</a></h1>
-      <form action="#">
-        <input type="checkbox" id="btnMenu" class="btnMenu" />
-        <label for="btnMenu" class="btnMenuLabel">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path
-              fill="#000000"
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
-        </label>
-        <nav id="barraNavegacion" aria-label="Navegación principal">
-          <a href="#">Inicio</a>
-          <a href="#nosotros">Acerca de nosotros</a>
-          <a href="#catalogo">Nuestro catálogo</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-      </form>
-      <button id="abrirCarrito" aria-label="Ver carrito">
-        <img src="assets/icons/carrito.png" alt="Ícono de carrito" class="icono-carrito" />
-        <span id="cart-count">0</span>
-      </button>
-    </header>
+  <header id="navbar">
+    <h1><a href="#inicio">SmartWear</a></h1>
+
+    <!-- Botón hamburguesa -->
+    <button id="btnMenu" class="btnMenuLabel" aria-label="Abrir menú">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path
+          fill="#000000"
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+        />
+      </svg>
+    </button>
+
+    <!-- Menú de navegación -->
+    <nav id="barraNavegacion" aria-label="Navegación principal">
+      <a href="#">Inicio</a>
+      <a href="#nosotros">Acerca de nosotros</a>
+      <a href="#catalogo">Nuestro catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Botón carrito -->
+    <button id="abrirCarrito" aria-label="Ver carrito">
+      <img src="assets/icons/carrito.png" alt="Ícono de carrito" class="icono-carrito" />
+      <span id="cart-count">0</span>
+    </button>
+  </header>
 
   <!-- CONTENIDO PRINCIPAL -->
   <div id="contenidoPrincipal">
